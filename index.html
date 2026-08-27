@@ -472,9 +472,9 @@ body.cursor-target #precision-cursor .cursor-bearing{width:14px;height:14px;bord
       </button>
 
       <!-- Domino: user's uploaded domino video embedded -->
-      <button type="button" class="project-card interactive" data-project="domino" data-model="assets/Domino Placing Robot.glb" aria-label="Open Domino-Arranging Robot project">
+      <button type="button" class="project-card interactive" data-project="domino" data-model="can/assets/Domino Placing Robot.glb" aria-label="Open Domino-Arranging Robot project">
         <div class="project-preview">
-          <img src="assets/music-device-preview.png" alt="Domino-arranging robot">
+          <img src="can/assets/music-device-preview.png" alt="Domino-arranging robot">
           <div class="preview-fade"></div>
         </div>
         <div class="project-content">
@@ -491,9 +491,9 @@ body.cursor-target #precision-cursor .cursor-bearing{width:14px;height:14px;bord
       </button>
 
       <!-- Music: user's uploaded music video embedded -->
-      <button type="button" class="project-card interactive" data-project="music" data-model="assets/MusicDevice.glb" aria-label="Open Configurable Music Device project">
+      <button type="button" class="project-card interactive" data-project="music" data-model="can/assets/MusicDevice.glb" aria-label="Open Configurable Music Device project">
         <div class="project-preview">
-          <img src="assets/domino-bot-preview.png" alt="Configurable music device">
+          <img src="can/assets/domino-bot-preview.png" alt="Configurable music device">
           <div class="preview-fade"></div>
         </div>
         <div class="project-content">
@@ -1094,7 +1094,7 @@ const projects = {
     tag:"ROBOTICS · C++",
     title:"Autonomous Domino-Arranging Robot",
     flow:[
-      {type:"video",src:"assets/DominoVid.mp4",label:"DOMINO ROBOT VIDEO"},
+      {type:"video",src:"can/assets/DominoVid.mp4",label:"DOMINO ROBOT VIDEO"},
       
       {type:"text",text:"Engineered a bead-driven conveyor translating manual crank input into musical output across a 50–150 BPM tempo range."},
       {type:"text",text:"Designed a multi-component SolidWorks assembly meeting acoustic and timing constraints, achieving ≥90% consistency."},
@@ -1105,8 +1105,8 @@ const projects = {
     tag:"SOLIDWORKS",
     title:"Configurable Music Device",
     flow:[
-      {type:"video",src:"assets/MusicVid.mp4",label:"MUSIC DEVICE VIDEO"},
-      {type:"image",src:"assets/MusicCAD.jpg",label:"CAD Model"},
+      {type:"video",src:"can/assets/MusicVid.mp4",label:"MUSIC DEVICE VIDEO"},
+      {type:"image",src:"can/assets/MusicCAD.jpg",label:"CAD Model"},
       {type:"text",text:"Engineered a bead-driven conveyor translating manual crank input into musical output across a 50–150 BPM tempo range."},
       {type:"text",text:"Designed a multi-component SolidWorks assembly meeting acoustic and timing constraints, achieving ≥90% consistency."},
       {type:"text",text:"Validated designs through iterative low-cost prototyping, reaching a bead collection efficiency of ≥90%."}
@@ -1324,7 +1324,7 @@ function openProject(key){
       </div>
       <span class="tag">${escapeHtml(p.tag)}</span>
     </div>
-    <div class="pt-7">${renderProjectFlow(p.flow)}</div>    ${key === "domino" ? `<div class="mt-8 media-block"><img src="assets/DominoCAD.jpg" alt="Domino-arranging robot CAD model"><span class="media-label">CAD Model</span></div>` : ""}
+    <div class="pt-7">${renderProjectFlow(p.flow)}</div>    ${key === "domino" ? `<div class="mt-8 media-block"><img src="can/assets/DominoCAD.jpg" alt="Domino-arranging robot CAD model"><span class="media-label">CAD Model</span></div>` : ""}
     ${key === "music" ? `
       <div class="mt-8">
         <div class="eyebrow mb-3 text-ice/80">INTERACTIVE 3D MODEL</div>
@@ -1390,7 +1390,7 @@ function openProject(key){
         modelStatus.classList.add("is-error");
       }
     }else if(key==="domino"){
-      viewer.setAttribute("src","assets/Domino Placing Robot.glb");
+      viewer.setAttribute("src","can/assets/Domino Placing Robot.glb");
     }
   }
 }
@@ -1916,7 +1916,7 @@ function initLegacyMechanicalCar(){
   scene.add(highlight);
   const pokeballs=[];
   const loader=new THREE.GLTFLoader();
-  loader.load("assets/pokemon_basic_pokeball.glb",gltf=>{
+  loader.load("can/assets/pokemon_basic_pokeball.glb",gltf=>{
     const source=gltf.scene;
     const bounds=new THREE.Box3().setFromObject(source);
     const center=bounds.getCenter(new THREE.Vector3());
@@ -1932,7 +1932,7 @@ function initLegacyMechanicalCar(){
       pokeballs.push(ball);
     }
   },undefined,error=>console.warn("Could not load Poké Ball model",error));
-  loader.load("assets/car.glb",gltf=>{
+  loader.load("can/assets/car.glb",gltf=>{
     const model=gltf.scene;
     const box=new THREE.Box3().setFromObject(model);
     const center=box.getCenter(new THREE.Vector3());
@@ -2004,7 +2004,7 @@ function initLegacyMechanicalCar(){
   scene.add(new THREE.HemisphereLight(0xc7eaff,0x080b10,1.8));
   const key=new THREE.DirectionalLight(0xffffff,3); key.position.set(3,4,4); scene.add(key);
   const rig=new THREE.Group(); scene.add(rig);
-  new THREE.GLTFLoader().load("assets/poker_chip.glb",gltf=>{
+  new THREE.GLTFLoader().load("can/assets/poker_chip.glb",gltf=>{
     const model=gltf.scene, box=new THREE.Box3().setFromObject(model), center=box.getCenter(new THREE.Vector3()), size=box.getSize(new THREE.Vector3());
     model.position.sub(center); model.scale.setScalar(2.1/Math.max(size.x,size.y,size.z)); rig.add(model);
   },undefined,error=>console.warn("Could not load poker chip preview",error));
